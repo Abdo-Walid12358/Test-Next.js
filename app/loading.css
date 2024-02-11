@@ -1,0 +1,11 @@
+.loading-page {
+    min-height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--padding-2);
+    background-color: var(--section-bg-1);
+}
+.loading-page h1{
+    font-size: 50px;
+}

@@ -1,0 +1,25 @@
+.posts-page{
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: var(--padding-2);
+    padding-top: 120px;
+    background-color: var(--section-bg-1);
+}
+.posts{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+@media(width < 1200px){
+    .posts{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media(width < 650px){
+    .posts{
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,95 @@
+footer .box-1{
+    background-color: var(--color-hover);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+footer .box-1 .scoials{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+footer .box-1 .scoials svg{
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    padding: 5px;
+    transition: var(--time) ease;
+}
+footer .box-1 .scoials svg:hover{
+    border-color: var(--color);
+}
+footer .box-1 .scoials svg:hover path{
+    color: var(--color);
+}
+footer .box-1{
+    background-color: var(--color-hover);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+footer .box-2{
+    background-color: var(--section-bg-1);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    padding: 15px 100px;
+}
+footer .box-2 .title-row{
+    width: fit-content;
+    font-size: 20px;
+    position: relative;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+footer .box-2 .title-row::before{
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    height: 3px;
+    width: 80%;
+    background-color: var(--color-hover);
+}
+footer .box-2 div{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+footer .box-2 div span{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+}
+footer .box-3{
+    background-color: var(--section-bg-2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+}
+footer .box-3 span{
+    font-size: 15px;
+}
+
+@media(width < 1020px){
+    footer .box-2{
+        padding: 15px 20px;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+@media(width < 750px){
+    footer .box-2{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media(width < 600px){
+    footer .box-2{
+        grid-template-columns: 1fr;
+    }
+}

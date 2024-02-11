@@ -1,0 +1,6 @@
+.about{
+    min-height: 100dvh;
+    padding: var(--padding-2);
+    padding-top: 120px;
+    background-color: var(--section-bg-2);
+}
