@@ -1,4 +1,3 @@
-import "./page.css";
 import Header from "@/components/header/header";
 import PostDetails from "@/components/postDetails/postDetails";
 import Footer from "@/components/footer/footer";
