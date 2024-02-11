@@ -2,24 +2,27 @@
 import "./toggleMode.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSun } from "@fortawesome/free-solid-svg-icons";
+import Cookies from "js-cookie";
+import { useEffect } from "react";
 
 export default function ToggleMode() {
-    let darkMode = localStorage.getItem("darkMode");
-
-    document.body.onload = () => {
-        if(darkMode == "false"){
+    useEffect(() => {
+        const darkMode = Cookies.get("darkMode");
+        if (darkMode === "true") {
+            document.body.classList.remove("light-mode");
+        } else {
             document.body.classList.add("light-mode");
         }
-    }
+    }, []);
 
     const handelToggleMode = () => {
-        darkMode = localStorage.getItem("darkMode");
-        
-        if (darkMode == "true") {
-            localStorage.setItem("darkMode", false);
+        const darkMode = Cookies.get("darkMode");
+
+        if (darkMode === "true") {
+            Cookies.set("darkMode", "false");
             document.body.classList.add("light-mode");
         } else {
-            localStorage.setItem("darkMode", true);
+            Cookies.set("darkMode", "true");
             document.body.classList.remove("light-mode");
         }
     };
