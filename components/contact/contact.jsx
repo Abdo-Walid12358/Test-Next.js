@@ -32,25 +32,7 @@ export default function Contact() {
         } else if (!formData.message.trim()) {
             output = "Message is Empty!";
         } else {
-            try {
-                const response = await fetch("/api/send-email", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(formData),
-                });
-
-                const data = await response.json();
-
-                if (response.ok) {
-                    output = "Success (Email sent successfully)";
-                } else {
-                    output = "Failed to send email : " + data.error;
-                }
-            } catch (error) {
-                output = "Error sending email : " + error;
-            }
+            output = "Success.";
         }
 
         if (!output.includes("Success")) {
