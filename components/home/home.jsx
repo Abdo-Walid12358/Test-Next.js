@@ -2,6 +2,7 @@
 
 import "./home.css";
 import programmingImage from "@/public/programming.png";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { TypeAnimation } from "react-type-animation";
 
@@ -39,8 +40,10 @@ export default function Home() {
                 </button>
             </div>
             <div className="image">
-                <img
+                <Image
                     src={programmingImage.src}
+                    width={600}
+                    height={600}
                     draggable="false"
                     loading="lazy"
                 />

@@ -19,6 +19,7 @@ body{
   --main-color-opacity: rgba(0, 0, 0, 0.75);
   --padding-1: 20px 30px;
   --padding-2: 20px 40px;
+  --padding-top-title: 120px;
   --section-bg-1: #222;
   --section-bg-2: #111;
   --color-hover: deeppink;
@@ -29,12 +30,8 @@ body.light-mode{
   --main-color: #eaeaea;
   --main-color-2: black;
   --main-color-opacity: rgb(255, 255, 255, 0.75);
-  --padding-1: 20px 30px;
-  --padding-2: 20px 40px;
   --section-bg-1: #dfdfdf;
   --section-bg-2: #ffffff;
-  --color-hover: deeppink;
-  --time: 0.3s;
 }
 a{
   text-decoration: none;
@@ -89,4 +86,15 @@ a{
 }
 svg path{
   transition: var(--time) ease;
+}
+
+@media(width < 600px){
+  :root{
+    --padding-1: 10px 15px;
+    --padding-2: 10px 20px;
+    --padding-top-title: 85px;
+  }
+  .title-section{
+    font-size: 32px;
+  }
 }

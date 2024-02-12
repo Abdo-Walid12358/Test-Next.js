@@ -1,11 +1,11 @@
 .home{
-    min-height: 100dvh;
+    min-height: 100svh;
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: center;
     align-items: center;
     padding: var(--padding-2);
-    padding-top: 120px;
+    padding-top: var(--padding-top-title);
     background-color: var(--section-bg-1);
 }
 .home h2{
@@ -39,5 +39,10 @@
     }
     .home > .image img{
         width: 80%;
+    }
+}
+@media(width < 600px){
+    .home > .image img{
+        width: 100%;
     }
 }

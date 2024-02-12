@@ -1,10 +1,10 @@
 .posts-page{
-    min-height: 100dvh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     gap: 30px;
     padding: var(--padding-2);
-    padding-top: 120px;
+    padding-top: var(--padding-top-title);
     background-color: var(--section-bg-1);
 }
 .posts{

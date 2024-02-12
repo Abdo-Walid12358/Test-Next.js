@@ -47,32 +47,34 @@ export default function Contact() {
             <Toaster richColors closeButton invert />
             <section className="contact-page">
                 <h1 className="title-section">Contact</h1>
-                <form>
-                    <h2>Contact Me</h2>
-                    <label>Username</label>
-                    <input
-                        type="text"
-                        name="username"
-                        placeholder="Enter Username . . ."
-                        onChange={handleChange}
-                    />
-                    <label>Email</label>
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="Enter Email . . ."
-                        onChange={handleChange}
-                    />
-                    <label>Message</label>
-                    <textarea
-                        name="message"
-                        placeholder="Enter Message . . ."
-                        onChange={handleChange}
-                    ></textarea>
-                    <button className="main-btn" onClick={handelSendEmail}>
-                        Send Email
-                    </button>
-                </form>
+                <div className="box-contact">
+                    <form>
+                        <h2>Contact Me</h2>
+                        <label>Username</label>
+                        <input
+                            type="text"
+                            name="username"
+                            placeholder="Enter Username . . ."
+                            onChange={handleChange}
+                        />
+                        <label>Email</label>
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Enter Email . . ."
+                            onChange={handleChange}
+                        />
+                        <label>Message</label>
+                        <textarea
+                            name="message"
+                            placeholder="Enter Message . . ."
+                            onChange={handleChange}
+                        ></textarea>
+                        <button className="main-btn" onClick={handelSendEmail}>
+                            Send Email
+                        </button>
+                    </form>
+                </div>
             </section>
         </>
     );

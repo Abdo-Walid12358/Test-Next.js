@@ -92,4 +92,16 @@ footer .box-3 span{
     footer .box-2{
         grid-template-columns: 1fr;
     }
+
+    footer .box-1{
+        flex-direction: column;
+        gap: 8px;
+    }
+    footer .box-1 .scoials{
+        gap: 5px;
+    }
+    footer .box-1 .scoials svg{
+        width: 20px;
+        height: 20px;
+    }
 }

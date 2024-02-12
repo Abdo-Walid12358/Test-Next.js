@@ -1,7 +1,7 @@
 "use client";
 import "./toggleMode.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSun } from "@fortawesome/free-solid-svg-icons";
+import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import Cookies from "js-cookie";
 import { useEffect } from "react";
 
@@ -30,6 +30,7 @@ export default function ToggleMode() {
     return (
         <div className="toggle-mode" onClick={handelToggleMode}>
             <FontAwesomeIcon icon={faSun} />
+            <FontAwesomeIcon icon={faMoon} />
         </div>
     );
 }

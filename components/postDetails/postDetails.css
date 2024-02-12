@@ -4,7 +4,7 @@
     flex-direction: column;
     gap: 30px;
     padding: var(--padding-2);
-    padding-top: 120px;
+    padding-top: var(--padding-top-title);
     background-color: var(--section-bg-1);
 }
 .post-box{
@@ -32,11 +32,11 @@
 }
 .post-box .left .bottom{
     display: flex;
-    gap: 10px;
+    gap: 2%;
     width: 100%;
 }
 .post-box .left .bottom img{
-    width: 24%;
+    width: 23.5%;
     height: 100px;
     cursor: pointer;
     border: 2px solid white;
