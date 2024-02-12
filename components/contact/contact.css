@@ -37,7 +37,7 @@
     border: 3px solid var(--section-bg-1);
     outline: none;
     background-color: transparent;
-    transition: var(--time) ease;
+    transition: border var(--time) ease;
 }
 .contact-page form textarea{
     resize: vertical;
