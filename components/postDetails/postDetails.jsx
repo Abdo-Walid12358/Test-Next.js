@@ -3,6 +3,8 @@ import "./postDetails.css";
 import Post from "../post/post";
 import { Suspense, useEffect, useState } from "react";
 import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShare } from "@fortawesome/free-solid-svg-icons";
 
 export default function PostDetails({ productID }) {
     const [post, setPost] = useState([]);
@@ -36,6 +38,18 @@ export default function PostDetails({ productID }) {
         e.target.classList.add("active");
     }
 
+    const  handelShareProduct = () => {
+        if(navigator.canShare){
+            navigator.share({
+                url: window.location.href,
+                text: post.title,
+                title: post.title
+            })
+        }else{
+            alert(":(");
+        }
+    }
+
     return (
         <section className="post-page">
             <h1 className="title-section">Post Details</h1>
@@ -45,7 +59,10 @@ export default function PostDetails({ productID }) {
                 ) : (
                     <div className="post-box">
                         <div className="left">
-                            <img src={mainImg} className="main-img" />
+                            <div className="image-view">
+                                <img src={mainImg} className="main-img" />
+                                <FontAwesomeIcon icon={faShare} className="share" onClick={handelShareProduct} />
+                            </div>
                             <div className="bottom">
                                 {post.images && post.images.map((image, index) => {
                                     if(index < 4){

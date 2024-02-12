@@ -24,7 +24,7 @@ export default function Posts() {
     return (
         <section className="posts-page">
             <h1 className="title-section">Posts</h1>
-                <Suspense>
+                <Suspense fallback={<p>Loading Posts...</p>}>
                     {isLoading ? <p>Loading Posts...</p> : <div className="posts">
                         {posts.map((post) => {
                             const linkPost = `/posts/${post.id}`;

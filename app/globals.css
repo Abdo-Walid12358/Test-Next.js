@@ -13,6 +13,9 @@ section, header, footer, button, input, textarea, select{
 body{
   overflow-x: hidden;
 }
+img{
+  user-select: none;
+}
 :root{
   --main-color: #333;
   --main-color-2: white;
