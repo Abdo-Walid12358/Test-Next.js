@@ -46,7 +46,6 @@ export default function Home() {
                     height={600}
                     draggable="false"
                     loading="lazy"
-                    placeholder="blur"
                 />
             </div>
         </section>
