@@ -6,27 +6,42 @@ import Link from "next/link";
 
 export default function Posts() {
     const [posts, setPosts] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
-
+    const [isLoading, setIsLoading] = useState(true);
+    const [searchValue, setSearchValue] = useState('');
+    
     useEffect(() => {
         async function getPosts() {
             setIsLoading(true);
+
             const res = await fetch(
                 "https://dummyjson.com/products"
             );
             const postsData = await res.json();
-            setPosts(postsData.products);
+
+            if(searchValue.trim() != '' && searchValue.trim() != undefined){
+                const filteredPosts = postsData.products.filter(post =>
+                    post.title.toLowerCase().includes(searchValue.toLowerCase())
+                );
+                setPosts(filteredPosts);
+            }else{
+                setPosts(postsData.products);
+            }
             setIsLoading(false);
         }
         getPosts();
-    }, []);
+    }, [searchValue]);
+
+    const handelSearchProduct = (e) => {
+        setSearchValue(e.target.value);
+    }
 
     return (
         <section className="posts-page">
             <h1 className="title-section">Posts</h1>
+                <input type="text" placeholder="Search . . ." className="search-product" onKeyUp={handelSearchProduct} />
                 <Suspense fallback={<p>Loading Posts...</p>}>
-                    {isLoading ? <p>Loading Posts...</p> : <div className="posts">
-                        {posts.map((post) => {
+                    {isLoading && posts.length == 0 ? <p>Loading Posts...</p> : <div className="posts">
+                        {posts.length != 0 ? posts.map((post) => {
                             const linkPost = `/posts/${post.id}`;
                             return (
                                 <Link href={linkPost}>
@@ -38,8 +53,8 @@ export default function Posts() {
                                     />
                                 </Link>
                             );
-                        })}
-                    </div> }
+                        }) : <p>Not Found Product</p>}
+                    </div>}
                 </Suspense>
         </section>
     );

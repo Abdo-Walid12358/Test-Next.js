@@ -7,6 +7,20 @@
     padding-top: var(--padding-top-title);
     background-color: var(--section-bg-1);
 }
+.posts-page .search-product{
+    display: flex;
+    gap: 5px;
+    width: 100%;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 3px solid var(--section-bg-2);
+    outline: none;
+    background-color: transparent;
+    transition: border var(--time) ease;
+}
+.posts-page .search-product:focus{
+    border-color: var(--color-hover);
+}
 .posts{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;

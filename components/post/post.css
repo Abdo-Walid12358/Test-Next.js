@@ -39,6 +39,7 @@
 .post:hover{
     border-color: var(--color-hover);
     background-color: var(--color-hover);
+    box-shadow: 0 0 15px var(--color-hover);
 }
 .post:hover .window-card{
     bottom: 0;

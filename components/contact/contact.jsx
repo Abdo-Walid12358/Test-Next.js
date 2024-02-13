@@ -1,38 +1,47 @@
 "use client";
-import { useState } from "react";
 import "./contact.css";
+import { useState } from "react";
 import { Toaster, toast } from "sonner";
 
 export default function Contact() {
-    const [formData, setFormData] = useState({
-        username: "",
-        email: "",
-        message: "",
-    });
-
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
+    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
+    const [message, setMessage] = useState("");
 
     const handelSendEmail = async (e) => {
         e.preventDefault();
 
         let output = "";
 
-        if (
-            !formData.username.trim() &&
-            !formData.email.trim() &&
-            !formData.message.trim()
-        ) {
+        if (!username.trim() && !email.trim() && !message.trim()) {
             output = "All Inputs Are Empty!";
-        } else if (!formData.username.trim()) {
+        } else if (!username.trim()) {
             output = "Username is Empty!";
-        } else if (!formData.email.trim()) {
+        } else if (!email.trim()) {
             output = "Email is Empty!";
-        } else if (!formData.message.trim()) {
+        } else if (!message.trim()) {
             output = "Message is Empty!";
         } else {
-            output = "Success.";
+            const requestOptions = {
+                method: "POST",
+                headers: { accept: "application/json" },
+                body: JSON.stringify({ username, email, message }),
+            };
+
+            try {
+                const response = await fetch("/api/sendEmail", requestOptions);
+
+
+                console.log(response);
+
+                if(response.ok){
+                    output = "Success.";
+                }else{
+                    output = "Error.";
+                }
+            } catch (error) {
+                output = "An error occurred while sending the email";
+            }
         }
 
         if (!output.includes("Success")) {
@@ -55,20 +64,20 @@ export default function Contact() {
                             type="text"
                             name="username"
                             placeholder="Enter Username . . ."
-                            onChange={handleChange}
+                            onChange={(e) => setUsername(e.target.value)}
                         />
                         <label>Email</label>
                         <input
                             type="email"
                             name="email"
                             placeholder="Enter Email . . ."
-                            onChange={handleChange}
+                            onChange={(e) => setEmail(e.target.value)}
                         />
                         <label>Message</label>
                         <textarea
                             name="message"
                             placeholder="Enter Message . . ."
-                            onChange={handleChange}
+                            onChange={(e) => setMessage(e.target.value)}
                         ></textarea>
                         <button className="main-btn" onClick={handelSendEmail}>
                             Send Email

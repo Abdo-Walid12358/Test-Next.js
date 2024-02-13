@@ -12,6 +12,7 @@ export default function ToggleMode() {
         } else if (darkMode === "false") {
             document.body.classList.add("light-mode");
         } else {
+            setCookie("darkMode", "true", (1000 * 60 * 60 * 24 * 365) * 10);
             document.body.classList.remove("light-mode");
         }
     }, []);
