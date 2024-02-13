@@ -19,13 +19,17 @@ export default function ToggleMode() {
 
     const handelToggleMode = () => {
         const darkMode = getCookie("darkMode");
+        console.log(darkMode);
 
-        if (darkMode === "true") {
+        if (darkMode == "true") {
             setCookie("darkMode", "false", (1000 * 60 * 60 * 24 * 365) * 10);
             document.body.classList.add("light-mode");
-        } else {
+        } else if(darkMode == "false") {
             setCookie("darkMode", "true", (1000 * 60 * 60 * 24 * 365) * 10);
             document.body.classList.remove("light-mode");
+        }else{
+            setCookie("darkMode", "false", (1000 * 60 * 60 * 24 * 365) * 10);
+            document.body.classList.add("light-mode");
         }
     };
 
