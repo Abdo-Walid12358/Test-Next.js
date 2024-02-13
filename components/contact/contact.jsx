@@ -1,12 +1,14 @@
 "use client";
 import "./contact.css";
 import { useState } from "react";
+import { Audio } from "react-loader-spinner";
 import { Toaster, toast } from "sonner";
 
 export default function Contact() {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
 
     const handelSendEmail = async (e) => {
         e.preventDefault();
@@ -22,7 +24,38 @@ export default function Contact() {
         } else if (!message.trim()) {
             output = "Message is Empty!";
         } else {
-            output = "Success.";
+            try {
+                setIsLoading(true);
+
+                const bodyData = {
+                    username: username,
+                    email: email,
+                    message: message,
+                };
+
+                const response = await fetch("/api/sendEmail", {
+                    method: "POST",
+                    headers: {
+                        "Content-type": "application/json",
+                    },
+                    body: JSON.stringify(bodyData),
+                });
+
+                if (response.status === 200) {
+                    setIsLoading(false);
+                    setUsername("");
+                    setEmail("");
+                    setMessage("");
+
+                    output = "Success.";
+                } else {
+                    setIsLoading(false);
+                    output = "Error.";
+                }
+            } catch (error) {
+                setIsLoading(false);
+                output = "An error occurred while sending the email";
+            }
         }
 
         if (!output.includes("Success")) {
@@ -45,6 +78,7 @@ export default function Contact() {
                             type="text"
                             name="username"
                             placeholder="Enter Username . . ."
+                            value={username}
                             onChange={(e) => setUsername(e.target.value)}
                         />
                         <label>Email</label>
@@ -52,16 +86,18 @@ export default function Contact() {
                             type="email"
                             name="email"
                             placeholder="Enter Email . . ."
+                            value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
                         <label>Message</label>
                         <textarea
                             name="message"
                             placeholder="Enter Message . . ."
+                            value={message}
                             onChange={(e) => setMessage(e.target.value)}
                         ></textarea>
-                        <button className="main-btn" onClick={handelSendEmail}>
-                            Send Email
+                        <button className="main-btn" onClick={handelSendEmail} disabled={isLoading}>
+                            {isLoading ? <Audio width={35} height={35} color="deeppink" /> : "Send Email"}
                         </button>
                     </form>
                 </div>

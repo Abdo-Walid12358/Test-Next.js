@@ -58,7 +58,13 @@
     font-size: 18px;
     font-weight: 600;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     transition: var(--time) ease;
+}
+.contact-page form button:disabled{
+    opacity: 0.5;
 }
 .contact-page form button:hover{
     background-color: transparent;
