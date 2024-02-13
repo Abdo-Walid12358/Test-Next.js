@@ -14,6 +14,7 @@ export default function About() {
                         height={600}
                         draggable="false"
                         loading="lazy"
+                        placeholder="blur"
                     />
                 </div>
                 <div className="right">
