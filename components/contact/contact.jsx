@@ -22,26 +22,6 @@ export default function Contact() {
         } else if (!message.trim()) {
             output = "Message is Empty!";
         } else {
-            // const requestOptions = {
-            //     method: "POST",
-            //     headers: { accept: "application/json" },
-            //     body: JSON.stringify({ username, email, message }),
-            // };
-
-            // try {
-            //     const response = await fetch("/api/sendEmail", requestOptions);
-
-            //     console.log(response);
-
-            //     if(response.ok){
-            //         output = "Success.";
-            //     }else{
-            //         output = "Error.";
-            //     }
-            // } catch (error) {
-            //     output = "An error occurred while sending the email";
-            // }
-
             output = "Success.";
         }
 
